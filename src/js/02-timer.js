@@ -49,7 +49,7 @@ function addLeadingZero(value) {
 }
 
 function onStartClick() {
-  let timer = setInterval(() => {
+  let time = setInterval(() => {
     let countdown = new Date(input.value) - new Date();
     btnStart.disabled = true;
     if (countdown >= 0) {
@@ -59,12 +59,13 @@ function onStartClick() {
       minutes.textContent = addLeadingZero(timeObject.minutes);
       seconds.textContent = addLeadingZero(timeObject.seconds);
       if (countdown <= 10000) {
-        timerHtml.style.color = 'tomato';
+        timer.style.color = 'tomato';
       }
     } else {
+      
       Notiflix.Notify.success('Countdown finished');
-      timerHtml.style.color = 'black';
-      clearInterval(timer);
+      timer.style.color = 'green';
+      clearInterval(time);
     }
   }, 1000);
 }
